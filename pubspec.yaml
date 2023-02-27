@@ -38,6 +38,7 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   get: ^4.6.5
   animated_bottom_navigation_bar: ^1.1.0+1
+  timer_builder: ^2.0.0
 
 dev_dependencies:
   flutter_test:

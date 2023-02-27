@@ -1,3 +1,4 @@
+import 'package:barcode_scanner/presentations/barcode_scanner/views/barcode_scanner_view.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarModel {
@@ -10,7 +11,7 @@ class BottomNavigationBarModel {
   ];
 
   // Pages
-  final List<dynamic> pages = [
+  final List<Widget> pages = [
     // Home
     Container(
       color: Colors.red,
@@ -28,8 +29,6 @@ class BottomNavigationBarModel {
       color: Colors.yellow,
     ),
     // QR Code Scanner
-    Container(
-      color: Colors.purple,
-    )
+    const BarcodeScannerView(),
   ];
 }

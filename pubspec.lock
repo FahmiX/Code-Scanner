@@ -90,10 +90,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_plugin_android_lifecycle
-      sha256: "60fc7b78455b94e6de2333d2f95196d32cf5c22f4b0b0520a628804cb463503b"
+      sha256: "4bef634684b2c7f3468c77c766c831229af829a0cd2d4ee6c1b99558bd14e5d2"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.7"
+    version: "2.0.8"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -208,6 +208,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  timer_builder:
+    dependency: "direct main"
+    description:
+      name: timer_builder
+      sha256: "67c5653a8d9f6ce62fe9121e520736e9da74418a919fe1c0e181b5d2627dbc4a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   vector_math:
     dependency: transitive
     description:
@@ -218,4 +226,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=2.19.2 <3.0.0"
-  flutter: ">=2.8.0"
+  flutter: ">=3.0.0"
