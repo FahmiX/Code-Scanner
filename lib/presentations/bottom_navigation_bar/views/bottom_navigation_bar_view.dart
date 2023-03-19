@@ -38,7 +38,7 @@ class BottomNavigationBarState extends State<BottomNavigationBarView> {
                 onPressed: () {
                   controller.setIndex(4);
                 },
-                child: const Icon(Icons.nightlight_round, color: Colors.black),
+                child: const Icon(Icons.qr_code_scanner, color: Colors.black),
               ),
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerDocked,

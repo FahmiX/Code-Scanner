@@ -10,7 +10,7 @@ class BarcodeScannerPage extends StatefulWidget {
 }
 
 class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
-  String _scanBarcode = 'Unknown';
+  String _scanBarcode = 'Kosong';
 
   @override
   Widget build(BuildContext context) {

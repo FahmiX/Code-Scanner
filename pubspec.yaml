@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.5
   animated_bottom_navigation_bar: ^1.1.0+1
   timer_builder: ^2.0.0
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:
