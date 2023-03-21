@@ -19,21 +19,34 @@ class BarcodeScannerView extends StatefulWidget {
 
 class _BarcodeViewState extends State<BarcodeScannerView> {
   final BarcodeScannerController _controller = BarcodeScannerController();
-  String _barcodeData = "";
+  String _responseMessage = "";
+  String _jumlahBarang = "";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Barcode Scanner"),
+        title: const Text("Scanner"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              _barcodeData,
-              style: const TextStyle(fontSize: 18),
+            SizedBox(
+              width: 140,
+              child: TextField(
+                decoration: const InputDecoration(
+                  labelText: 'Jumlah Barang',
+                  border: OutlineInputBorder(),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                ),
+                onChanged: (value) {
+                  setState(() {
+                    _jumlahBarang = value;
+                  });
+                },
+              ),
             ),
             ElevatedButton(
               onPressed: () async {
@@ -41,30 +54,38 @@ class _BarcodeViewState extends State<BarcodeScannerView> {
 
                 if (barcodeData == "-1") {
                   setState(() {
-                    _barcodeData = "";
+                    _responseMessage = "";
                   });
                   return;
                 } else {
                   // Post barcode data to server
                   final response = await http.post(
-                    Uri.parse('http://192.168.42.10:3000/api/transaction/buy'),
-                    body: {'kode_barang': barcodeData},
+                    Uri.parse(
+                        'http://192.168.100.4:8000/api/gudang/barang/tambah'),
+                    body: {
+                      'kode_barang': barcodeData,
+                      'jumlah_barang': _jumlahBarang,
+                    },
                   );
 
                   if (response.statusCode == 200) {
                     final data = jsonDecode(response.body);
                     setState(() {
-                      _barcodeData = data['message'];
+                      _responseMessage = data['message'];
                     });
                   } else {
                     final data = jsonDecode(response.body);
                     setState(() {
-                      _barcodeData = data['message'];
+                      _responseMessage = data['message'];
                     });
                   }
                 }
               },
-              child: const Text('Scan Barcode'),
+              child: const Text('Scan Supply'),
+            ),
+            Text(
+              _responseMessage,
+              style: const TextStyle(fontSize: 18),
             ),
           ],
         ),
